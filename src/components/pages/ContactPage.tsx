@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Twitter, Send, Code } from 'lucide-react';
@@ -53,7 +52,7 @@ const contact = {
   location: "Ghaziabad, India",
   
   socials: {
-    github: "https://github.com/mukul-rana-dev",
+    github: "https://github.com/mukulpythondev",
     linkedin: "https://linkedin.com/in/mukul-webdev",
     twitter: "@mukulrana320419",
     leetcode: "https://leetcode.com/mukul_rana_dev"
@@ -123,8 +122,8 @@ export { contact, sendMessage };`;
               
               <div className="flex items-center">
                 <Github className="h-5 w-5 text-vscode-accent-blue mr-4" />
-                <a href="https://github.com/mukul-rana-dev" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
-                  github.com/mukul-rana-dev
+                <a href="https://github.com/mukulpythondev" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
+                  github.com/mukulpythondev
                 </a>
               </div>
               

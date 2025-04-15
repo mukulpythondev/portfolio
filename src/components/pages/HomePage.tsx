@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Code } from 'lucide-react';
@@ -35,7 +34,7 @@ const welcomeMessage = () => {
 
 // Social links
 export const socialLinks = {
-  github: "https://github.com/mukul-rana-dev",
+  github: "https://github.com/mukulpythondev",
   linkedin: "https://linkedin.com/in/mukul-webdev",
   twitter: "@mukulrana320419",
   leetcode: "https://leetcode.com/mukul_rana_dev"
@@ -63,7 +62,7 @@ welcomeMessage();`;
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <a href="https://github.com/mukul-rana-dev" target="_blank" rel="noreferrer" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
+          <a href="https://github.com/mukulpythondev" target="_blank" rel="noreferrer" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
             <Github size={20} />
           </a>
           <a href="https://linkedin.com/in/mukul-webdev" target="_blank" rel="noreferrer" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">

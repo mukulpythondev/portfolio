@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import CodeBlock from '../ui/CodeBlock';
@@ -75,7 +74,13 @@ const bio = {
     "UI/UX Design",
     "Open Source",
     "AI and Machine Learning"
-  ]
+  ],
+  socialLinks: {
+    github: "https://github.com/mukulpythondev",
+    linkedin: "https://linkedin.com/in/mukul-webdev",
+    twitter: "@mukulrana320419",
+    leetcode: "https://leetcode.com/mukul_rana_dev"
+  }
 };
 
 export default bio;`;
