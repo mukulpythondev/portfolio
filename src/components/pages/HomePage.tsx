@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Code } from 'lucide-react';
@@ -21,6 +22,25 @@ const welcomeMessage = () => {
     "Next.js", 
     "Node.js", 
     "TailwindCSS"
+  ];
+  
+  // Education
+  const education = [
+    {
+      degree: "Bachelor of Technology",
+      field: "Computer Science Engineering",
+      institution: "IMS Engineering College",
+      year: "2023 - 2027",
+      location: "Ghaziabad, India",
+      gpa: "Current SGPA: 8.8"
+    },
+    {
+      degree: "Higher Secondary",
+      institution: "Shri Guru Ram Rai Public School",
+      year: "2021 - 2023",
+      location: "Ghaziabad, India",
+      score: "85%"
+    }
   ];
   
   return {
