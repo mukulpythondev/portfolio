@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Code } from 'lucide-react';
 import CodeBlock from '../ui/CodeBlock';
 
 const HomePage = () => {
@@ -17,8 +17,9 @@ const welcomeMessage = () => {
   
   const skills = [
     "JavaScript", 
+    "TypeScript",
     "React",
-    "TypeScript", 
+    "Next.js", 
     "Node.js", 
     "TailwindCSS"
   ];
@@ -26,16 +27,18 @@ const welcomeMessage = () => {
   return {
     name: "Mukul Rana",
     title: "Frontend Developer",
-    location: "India",
-    email: "contact@mukulrana.com"
+    location: "Ghaziabad, India",
+    email: "mukulpythondev@gmail.com",
+    phone: "+918882894356"
   };
 };
 
 // Social links
 export const socialLinks = {
-  github: "https://github.com/mukulrana",
-  linkedin: "https://linkedin.com/in/mukulrana",
-  twitter: "@mukulrana"
+  github: "https://github.com/mukul-rana-dev",
+  linkedin: "https://linkedin.com/in/mukul-webdev",
+  twitter: "@mukulrana320419",
+  leetcode: "https://leetcode.com/mukul_rana_dev"
 };
 
 welcomeMessage();`;
@@ -51,7 +54,7 @@ welcomeMessage();`;
         >
           <div className="text-gray-400">Hi all. I am</div>
           <h1 className="text-4xl md:text-5xl font-semibold text-white mt-2 mb-4">Mukul Rana</h1>
-          <div className="text-xl text-vscode-accent-blue">&gt; Front-end developer</div>
+          <div className="text-xl text-vscode-accent-blue">&gt; Frontend Developer</div>
         </motion.div>
         
         <motion.div 
@@ -60,13 +63,16 @@ welcomeMessage();`;
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <a href="#" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
+          <a href="https://github.com/mukul-rana-dev" target="_blank" rel="noreferrer" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
             <Github size={20} />
           </a>
-          <a href="#" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
+          <a href="https://linkedin.com/in/mukul-webdev" target="_blank" rel="noreferrer" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
             <Linkedin size={20} />
           </a>
-          <a href="#" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
+          <a href="https://leetcode.com/mukul_rana_dev" target="_blank" rel="noreferrer" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
+            <Code size={20} />
+          </a>
+          <a href="mailto:mukulpythondev@gmail.com" className="p-2 bg-vscode-bg-tertiary rounded-full hover:text-vscode-accent-blue transition-colors">
             <Mail size={20} />
           </a>
         </motion.div>

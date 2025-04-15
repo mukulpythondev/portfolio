@@ -18,168 +18,214 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Dashboard",
-    filename: "_ecommerce-dashboard.js",
-    description: "A comprehensive dashboard for e-commerce analytics with real-time data visualization and inventory management.",
-    technologies: ["React", "Redux", "Chart.js", "TailwindCSS"],
+    title: "DevLok",
+    filename: "_devlok.js",
+    description: "Developer matchmaking app with features like match, favorite, dislike, and real-time chat.",
+    technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Redis", "AWS EC2"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    github: "#",
+    github: "https://github.com/mukul-rana-dev/devlok",
     live: "#",
     code: `/**
- * Project: E-Commerce Dashboard
+ * Project: DevLok
  * 
- * A comprehensive dashboard for e-commerce analytics
- * with real-time data visualization and inventory management.
+ * Developer matchmaking app with features like match, 
+ * favorite, dislike, and real-time chat.
  */
 
 import React, { useState, useEffect } from 'react';
-import { fetchSalesData, fetchInventory } from '../api';
+import { io } from 'socket.io-client';
+import { fetchDevelopers, matchDeveloper, dislikeDeveloper } from '../api';
 import { 
-  DashboardLayout, 
-  SalesChart, 
-  InventoryTable 
+  DevCard, 
+  ChatWindow, 
+  MatchNotification 
 } from '../components';
 
-const Dashboard = () => {
-  const [salesData, setSalesData] = useState([]);
-  const [inventory, setInventory] = useState([]);
+const DevLok = () => {
+  const [developers, setDevelopers] = useState([]);
+  const [currentDev, setCurrentDev] = useState(null);
+  const [matches, setMatches] = useState([]);
+  const [socket, setSocket] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('overview');
 
   useEffect(() => {
-    const loadData = async () => {
+    const socketInstance = io(process.env.SOCKET_SERVER_URL);
+    setSocket(socketInstance);
+
+    socketInstance.on('new-match', (match) => {
+      setMatches(prev => [...prev, match]);
+    });
+
+    socketInstance.on('new-message', (message) => {
+      // Handle new messages
+    });
+
+    return () => socketInstance.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const loadDevelopers = async () => {
+      setIsLoading(true);
       try {
-        const sales = await fetchSalesData();
-        const items = await fetchInventory();
-        
-        setSalesData(sales);
-        setInventory(items);
+        const data = await fetchDevelopers();
+        setDevelopers(data);
+        setCurrentDev(data[0]);
       } catch (error) {
-        console.error("Failed to load data:", error);
+        console.error("Failed to load developers:", error);
       } finally {
         setIsLoading(false);
       }
     };
     
-    loadData();
+    loadDevelopers();
   }, []);
 
+  // Rest of the component...
+};
+
+export default DevLok;`
+  },
+  {
+    id: 2,
+    title: "Eventure",
+    filename: "_eventure.js",
+    description: "Event management platform with QR code entry, paid events, RSVP, and admin dashboard. Used for college events with 5+ events and 400+ attendees.",
+    technologies: ["Next.js", "TypeScript", "Clerk.js", "MongoDB", "Cloudinary", "AWS S3"],
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    github: "https://github.com/mukul-rana-dev/eventure",
+    live: "#",
+    code: `/**
+ * Project: Eventure
+ * 
+ * Event management platform with QR code entry,
+ * paid events, RSVP, and admin dashboard.
+ */
+
+import { useState, useEffect } from 'react';
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/router';
+import { 
+  EventCard,
+  EventForm,
+  AdminDashboard,
+  QRScanner
+} from '@/components';
+import { getAllEvents, getEventById } from '@/lib/actions/event.actions';
+
+const EventsPage = () => {
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('all');
+  const { user, isSignedIn } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      setIsLoading(true);
+      try {
+        const eventsData = await getAllEvents({
+          query: '',
+          category: '',
+          limit: 10,
+          page: 1,
+        });
+        
+        setEvents(eventsData.data);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  const handleCreateEvent = () => {
+    if (!isSignedIn) {
+      return router.push('/sign-in');
+    }
+    
+    router.push('/events/create');
+  };
+
+  // Rest of the component...
+};
+
+export default EventsPage;`
+  },
+  {
+    id: 3,
+    title: "Mental Wellness Platform",
+    filename: "_wellness_platform.js",
+    description: "A mental wellness platform focused on empowering individuals through expert-led masterclasses, podcasts, learning modules, and e-commerce integration.",
+    technologies: ["Next.js", "Node.js", "Socket.io", "Express", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1602192509154-0b900ee1f851?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+    github: "#",
+    live: "#",
+    code: `/**
+ * Project: Mental Wellness Platform
+ * 
+ * A mental wellness platform focused on empowering individuals
+ * through expert-led masterclasses, podcasts, learning modules,
+ * and e-commerce integration.
+ */
+
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useAuth } from '@/hooks/useAuth';
+import { fetchCourses, fetchPodcasts, fetchProducts } from '@/lib/api';
+import { 
+  Header, 
+  CourseCard, 
+  PodcastPlayer, 
+  ShopSection,
+  ChatModule
+} from '@/components';
+
+const Dashboard = () => {
+  const { user } = useAuth();
+  const router = useRouter();
+  const [courses, setCourses] = useState([]);
+  const [podcasts, setPodcasts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    const loadDashboardData = async () => {
+      setIsLoading(true);
+      try {
+        const [coursesData, podcastsData, productsData] = await Promise.all([
+          fetchCourses(),
+          fetchPodcasts(),
+          fetchProducts()
+        ]);
+        
+        setCourses(coursesData);
+        setPodcasts(podcastsData);
+        setProducts(productsData);
+      } catch (error) {
+        console.error('Error loading dashboard data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    if (user) {
+      loadDashboardData();
+    } else {
+      router.push('/login');
+    }
+  }, [user, router]);
+
+  // Real-time chat implementation with Socket.io
+  // Learning modules logic
+  // E-commerce shop integration
+  
   // Rest of the component...
 };
 
 export default Dashboard;`
-  },
-  {
-    id: 2,
-    title: "Social Media App",
-    filename: "_social-app.js",
-    description: "A modern social media platform with real-time chat, post sharing, and profile customization.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    github: "#",
-    live: "#",
-    code: `/**
- * Project: Social Media App
- * 
- * A modern social media platform with real-time chat,
- * post sharing, and profile customization.
- */
-
-import React, { useState, useContext } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { AuthContext } from './contexts/AuthContext';
-import { 
-  Login, 
-  Register, 
-  Feed, 
-  Profile, 
-  Messages 
-} from './pages';
-import { Navbar, Sidebar, ThemeToggle } from './components';
-
-const App = () => {
-  const { currentUser } = useContext(AuthContext);
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-theme');
-  };
-
-  const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={(props) =>
-        currentUser ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
-  );
-
-  // Rest of the component...
-};
-
-export default App;`
-  },
-  {
-    id: 3,
-    title: "Task Management System",
-    filename: "_task-manager.js",
-    description: "A collaborative task management system with team workspaces, task assignment, and progress tracking.",
-    technologies: ["React", "Firebase", "Material-UI", "TypeScript"],
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    github: "#",
-    live: "#",
-    code: `/**
- * Project: Task Management System
- * 
- * A collaborative task management system with team workspaces,
- * task assignment, and progress tracking.
- */
-
-import React, { useReducer, useEffect } from 'react';
-import { taskReducer, initialState } from './reducers';
-import { fetchTasks, fetchWorkspaces } from './services/api';
-import { 
-  Header, 
-  Sidebar, 
-  TasksList, 
-  TaskDetail, 
-  CreateTaskModal 
-} from './components';
-
-const TaskManager: React.FC = () => {
-  const [state, dispatch] = useReducer(taskReducer, initialState);
-  const [showCreateModal, setShowCreateModal] = useState(false);
-
-  useEffect(() => {
-    const loadInitialData = async () => {
-      dispatch({ type: 'FETCH_START' });
-      
-      try {
-        const [tasks, workspaces] = await Promise.all([
-          fetchTasks(),
-          fetchWorkspaces()
-        ]);
-        
-        dispatch({ 
-          type: 'FETCH_SUCCESS', 
-          payload: { tasks, workspaces } 
-        });
-      } catch (error) {
-        dispatch({ 
-          type: 'FETCH_ERROR', 
-          payload: error.message 
-        });
-      }
-    };
-    
-    loadInitialData();
-  }, []);
-
-  // Rest of the component...
-};
-
-export default TaskManager;`
   }
 ];
 

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Send, Code } from 'lucide-react';
 import CodeBlock from '../ui/CodeBlock';
 
 const ContactPage = () => {
@@ -48,14 +48,15 @@ const ContactPage = () => {
  */
 
 const contact = {
-  email: "contact@mukulrana.com",
-  phone: "+91 98765 43210",
-  location: "Delhi, India",
+  email: "mukulpythondev@gmail.com",
+  phone: "+918882894356",
+  location: "Ghaziabad, India",
   
   socials: {
-    github: "https://github.com/mukulrana",
-    linkedin: "https://linkedin.com/in/mukulrana",
-    twitter: "@mukulrana"
+    github: "https://github.com/mukul-rana-dev",
+    linkedin: "https://linkedin.com/in/mukul-webdev",
+    twitter: "@mukulrana320419",
+    leetcode: "https://leetcode.com/mukul_rana_dev"
   },
   
   // Preferred contact method
@@ -115,29 +116,36 @@ export { contact, sendMessage };`;
             <div className="space-y-4">
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-vscode-accent-blue mr-4" />
-                <a href="mailto:contact@mukulrana.com" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
-                  contact@mukulrana.com
+                <a href="mailto:mukulpythondev@gmail.com" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
+                  mukulpythondev@gmail.com
                 </a>
               </div>
               
               <div className="flex items-center">
                 <Github className="h-5 w-5 text-vscode-accent-blue mr-4" />
-                <a href="https://github.com/mukulrana" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
-                  github.com/mukulrana
+                <a href="https://github.com/mukul-rana-dev" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
+                  github.com/mukul-rana-dev
                 </a>
               </div>
               
               <div className="flex items-center">
                 <Linkedin className="h-5 w-5 text-vscode-accent-blue mr-4" />
-                <a href="https://linkedin.com/in/mukulrana" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
-                  linkedin.com/in/mukulrana
+                <a href="https://linkedin.com/in/mukul-webdev" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
+                  linkedin.com/in/mukul-webdev
                 </a>
               </div>
               
               <div className="flex items-center">
                 <Twitter className="h-5 w-5 text-vscode-accent-blue mr-4" />
-                <a href="https://twitter.com/mukulrana" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
-                  @mukulrana
+                <a href="https://twitter.com/mukulrana320419" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
+                  @mukulrana320419
+                </a>
+              </div>
+              
+              <div className="flex items-center">
+                <Code className="h-5 w-5 text-vscode-accent-blue mr-4" />
+                <a href="https://leetcode.com/mukul_rana_dev" target="_blank" rel="noreferrer" className="text-vscode-foreground-light hover:text-vscode-accent-blue transition-colors">
+                  LeetCode/mukul_rana_dev
                 </a>
               </div>
             </div>

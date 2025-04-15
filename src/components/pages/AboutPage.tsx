@@ -15,37 +15,60 @@ const AboutPage = () => {
 const bio = {
   name: "Mukul Rana",
   role: "Frontend Developer",
-  location: "India",
+  location: "Ghaziabad, India",
+  phone: "+918882894356",
+  email: "mukulpythondev@gmail.com",
   education: [
     {
       degree: "Bachelor of Technology",
-      field: "Computer Science",
-      institution: "Delhi Technological University",
-      year: "2020"
+      field: "Computer Science Engineering",
+      institution: "IMS Engineering College",
+      year: "2023 - 2027",
+      location: "Ghaziabad, India",
+      gpa: "Current SGPA: 8.8"
+    },
+    {
+      degree: "Higher Secondary",
+      institution: "Shri Guru Ram Rai Public School",
+      year: "2021 - 2023",
+      location: "Ghaziabad, India",
+      score: "85%"
     }
   ],
   experience: [
     {
-      position: "Frontend Developer",
-      company: "TechCorp Solutions",
-      duration: "2020 - Present",
+      position: "Full Stack Developer Intern / Team Lead",
+      company: "IABTM",
+      duration: "September 2024 - Present",
+      location: "Remote",
       responsibilities: [
-        "Developing responsive web applications",
-        "Building reusable components with React",
-        "Collaborating with design teams",
-        "Implementing UI/UX improvements"
+        "Leading development of a mental wellness platform",
+        "Implemented real-time chat with Socket.io",
+        "Built responsive architecture with Next.js and Node.js",
+        "Oversaw development team and improved code quality"
       ]
     },
     {
-      position: "Junior Web Developer",
-      company: "WebTech Innovations",
-      duration: "2019 - 2020",
+      position: "Frontend Developer Intern",
+      company: "Descriptive AI",
+      duration: "January 2024 - February 2024",
+      location: "Remote",
       responsibilities: [
-        "Assisted in frontend development",
-        "Worked on bug fixes and small features",
-        "Learned modern JavaScript frameworks"
+        "Developed vulnerability dashboard with Next.js and Tailwind CSS",
+        "Implemented admin dashboard from Figma designs",
+        "Fostered strong communication with team members"
       ]
     }
+  ],
+  skills: {
+    languages: ["JavaScript", "TypeScript", "Java", "HTML", "CSS", "SQL"],
+    frameworks: ["React", "Next.js", "Node.js", "Express", "Tailwind CSS"],
+    tools: ["Git", "GitHub", "Docker", "Redis", "MongoDB", "PostgreSQL", "AWS", "REST APIs"]
+  },
+  achievements: [
+    "Completed Meta Frontend Developer Capstone Course",
+    "3x Hackathon Winner and 10+ finalist in National Hackathons",
+    "Active Open Source Contributor in GSSOC'24 and Social Summer of Code '24"
   ],
   interests: [
     "Web Technologies",
@@ -92,30 +115,34 @@ export default bio;`;
               <span className="text-vscode-keyword">const</span> <span className="text-vscode-variable">name</span> = <span className="text-vscode-string">"Mukul Rana"</span>;
             </p>
             <p className="mb-2 text-vscode-foreground-light">
-              <span className="text-vscode-keyword">const</span> <span className="text-vscode-variable">location</span> = <span className="text-vscode-string">"India"</span>;
+              <span className="text-vscode-keyword">const</span> <span className="text-vscode-variable">location</span> = <span className="text-vscode-string">"Ghaziabad, India"</span>;
             </p>
             <p className="mb-2 text-vscode-foreground-light">
-              <span className="text-vscode-keyword">const</span> <span className="text-vscode-variable">email</span> = <span className="text-vscode-string">"contact@mukulrana.com"</span>;
+              <span className="text-vscode-keyword">const</span> <span className="text-vscode-variable">email</span> = <span className="text-vscode-string">"mukulpythondev@gmail.com"</span>;
+            </p>
+            <p className="mb-2 text-vscode-foreground-light">
+              <span className="text-vscode-keyword">const</span> <span className="text-vscode-variable">phone</span> = <span className="text-vscode-string">"+918882894356"</span>;
             </p>
           </div>
           
           <div className="mb-4">
-            <h4 className="text-sm font-semibold text-vscode-foreground-muted mb-2">// Professional Strengths</h4>
+            <h4 className="text-sm font-semibold text-vscode-foreground-muted mb-2">// Technical Skills</h4>
             <ul className="list-disc list-inside text-vscode-foreground-light space-y-1">
-              <li>Problem Solving</li>
-              <li>Attention to Detail</li>
-              <li>Quick Learner</li>
-              <li>Team Collaboration</li>
+              <li>JavaScript / TypeScript</li>
+              <li>React / Next.js</li>
+              <li>Node.js / Express</li>
+              <li>MongoDB / PostgreSQL</li>
+              <li>AWS / Docker</li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-sm font-semibold text-vscode-foreground-muted mb-2">// Interests</h4>
+            <h4 className="text-sm font-semibold text-vscode-foreground-muted mb-2">// Achievements</h4>
             <ul className="list-disc list-inside text-vscode-foreground-light space-y-1">
-              <li>Web Development</li>
-              <li>UI/UX Design</li>
-              <li>Open Source</li>
-              <li>Music & Photography</li>
+              <li>3x Hackathon Winner</li>
+              <li>Meta Frontend Developer Certificate</li>
+              <li>Open Source Contributor</li>
+              <li>Current SGPA: 8.8</li>
             </ul>
           </div>
         </motion.div>
