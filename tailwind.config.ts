@@ -61,6 +61,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				vscode: {
+					'bg-primary': '#1A1F2C',
+					'bg-secondary': '#1E2233',
+					'bg-tertiary': '#252A3A',
+					'tab-active': '#1E2233',
+					'tab-inactive': '#141820',
+					'accent-blue': '#4D78CC',
+					'border-dark': '#0D1117',
+					'foreground-light': '#CBCBD3',
+					'foreground-muted': '#8E9196',
+					'comment': '#6A7878', 
+					'func': '#569CD6',
+					'keyword': '#C586C0',
+					'string': '#CE9178',
+					'variable': '#9CDCFE',
+					'number': '#B5CEA8',
+					'property': '#DCDCAA',
+					'terminal-bg': '#1E2233',
 				}
 			},
 			borderRadius: {
